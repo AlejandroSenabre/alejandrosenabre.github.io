@@ -6,7 +6,7 @@
 
 Juegos Olimpicos - Proyecto Final.pdf
 
-[Link al PDF](/pdf/Juegos Olimpicos - Proyecto Final.pdf)
+[Link al PDF](/pdf/Juegos_Olimpicos_Proyecto_Final.pdf)
 
 
 Hate speech detection is the automated task of determining whether a piece of text contains hateful content. In this project, I built a classifier using PyTorch to fine-tune a BERT model.
