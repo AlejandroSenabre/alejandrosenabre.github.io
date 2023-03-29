@@ -2,7 +2,7 @@
 
 ---
 
-### Juegos Olimpicos
+### Proyecto final Data Analytics CoderHouse: Proyecto Juegos Olimpicos
 
 Juegos Olimpicos - Proyecto Final.pdf
 
