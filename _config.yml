@@ -11,7 +11,11 @@ description: > # your text below (remove <br> elements if you don't need line br
 theme: jekyll-theme-minimal
 google_analytics: UA-000000-0 # your Google Analytics tracking ID here
 
-colors:
-  crimson: '#FF0000'  # Cambiar a rojo brillante
-  primary: '#000000'  # Cambiar a negro
-  secondary: '#FFFFFF'  # Cambiar a blanco
+body {
+  background-color: #FF0000;  /* Cambiar a rojo */
+  color: #000000;  /* Cambiar a negro */
+}
+
+a {
+  color: #FFFFFF;  /* Cambiar a blanco */
+}
