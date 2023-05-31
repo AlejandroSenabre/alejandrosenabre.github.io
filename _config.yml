@@ -19,3 +19,7 @@ body {
 a {
   color: #FFFFFF;  /* Cambiar a blanco */
 }
+
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
