@@ -16,7 +16,7 @@ Juegos Olimpicos - Proyecto Final.pdf
 
 [Link al PDF](/pdf/Juegos_Olimpicos_Proyecto_Final.pdf)
 
-[![](https://img.shields.io/badge/-PowerB-white?logo=powerbi&style=flat)](#) [![](https://img.shields.io/badge/-SQL_server-yellow?logo=Microsoft-SQL-Server&style=flat)](#) 
+[![](https://img.shields.io/badge/-PowerBi-white?logo=powerbi&style=flat)](#) [![](https://img.shields.io/badge/-SQL_server-yellow?logo=Microsoft-SQL-Server&style=flat)](#) 
 
 [View code on Colab](https://colab.research.google.com/drive/1d_q0vUpgwmbN7imUcdsbuDwJ61OuBjvO?usp=sharing)
 
