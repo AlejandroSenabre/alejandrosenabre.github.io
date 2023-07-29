@@ -3,10 +3,12 @@
 ---
 ### Proyecto Data Science: Predicción de riesgo crediticio
 
-[Link al PDF](https://github.com/AlejandroSenabre/Proyecto-Data-Science-CoderHouse/blob/26ae9807c6b11aae457b2c86aede262e9618b109/Predicci%C3%B3n%20de%20riesgo%20crediticio%20en%20PDF.pdf)
+[Link al PDF](/pdf/Predicción_de_riesgo_crediticio_Final.pdf)
 
 
-[![](https://img.shields.io/badge/-Microsoft%20PowerPoint-FF4500?logo=microsoftpowerpoint)](#) [![](https://img.shields.io/badge/-Python-E6E6FA?logo=python)](#) 
+[![](https://img.shields.io/badge/-Microsoft%20PowerPoint-FF4500?logo=microsoftpowerpoint)](#) [![](https://img.shields.io/badge/-Python-E6E6FA?logo=python)](#) [![](https://img.shields.io/badge/-Scikit%20learn-F7931E?logo=scikit-learn&logoColor=white&style=flat)](#) 
+ 
+[Ver codigo en Colab](https://colab.research.google.com/drive/1g2xKNu5Nqd0lnpFrac1OpUe5tb4Va6Go?usp=sharing)
 
 ---
 
@@ -18,15 +20,9 @@ Juegos Olimpicos - Proyecto Final.pdf
 
 [![](https://img.shields.io/badge/-PowerBi-white?logo=powerbi&style=flat)](#) [![](https://img.shields.io/badge/-SQL_server-yellow?logo=Microsoft-SQL-Server&style=flat)](#) 
 
-[View code on Colab](https://colab.research.google.com/drive/1d_q0vUpgwmbN7imUcdsbuDwJ61OuBjvO?usp=sharing)
 
 ---
 
-### Examining panic-buying during the first wave of Covid-19, using mobility data
-The first wave of COVID-19 infections led to widespread stories of shortages in grocery stores as consumers stocked up in anticipation of lockdowns, a behaviour colloquially known as ‘panic buying’. In this project, I used mobility data from Google and Apple to empirically investigate the extent of panic buying in different countries.
 
-<img src="images/mobility.png?raw=true" />
-
-View code on Colab
 
 ---
