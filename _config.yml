@@ -1,5 +1,5 @@
 title: Alejandro Senabre # your name (or website title) here
-logo: "https://media.licdn.com/dms/image/C4D03AQFnAjJpnxwIMw/profile-displayphoto-shrink_400_400/0/1640377394961?e=1685577600&v=beta&t=QXzlE2K8qvFeB0RwT0bZMTOdL76kNoIcN5H6SIcNOo8" # your photo (or logo) here
+logo: "/images/logo.png?raw=true" # Pegar la imagen de perfil o logo
 description: > # your text below (remove <br> elements if you don't need line breaks)
   <br>
   Estudiante de Ciencas Actuariales en Economia de la Universidad de Buenos Aires.
