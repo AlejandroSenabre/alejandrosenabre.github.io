@@ -1,6 +1,6 @@
 ## Selección de trabajos de Ciencia de Datos y Data Analytics 
 
----
+--- 
 ### Proyecto Data Science: Predicción de riesgo crediticio
 
 [Link al PDF](/pdf/Predicción_de_riesgo_crediticio_Final.pdf)
