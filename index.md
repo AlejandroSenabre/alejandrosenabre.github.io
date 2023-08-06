@@ -3,18 +3,20 @@
 --- 
 ### Proyecto Data Science: Predicción de riesgo crediticio
 
-[Link al PDF](/pdf/Predicción_de_riesgo_crediticio_Final.pdf)
+Proyecto enfocado en la predicción de riesgo de incobrabilidad en préstamos bancarios. Se presentó un contexto global para mostrar el impacto que tendrá en la morosidad ante un aumento de la tasa de interés. 
+
+Presentación en PDF: [Link al PDF](/pdf/Predicción_de_riesgo_crediticio_Final.pdf)
+
+Notebook de Python: [Ver codigo en Colab](https://colab.research.google.com/drive/1g2xKNu5Nqd0lnpFrac1OpUe5tb4Va6Go?usp=sharing)
 
 
 [![](https://img.shields.io/badge/-Microsoft%20PowerPoint-FF4500?logo=microsoftpowerpoint)](#) [![](https://img.shields.io/badge/-Python-E6E6FA?logo=python)](#) [![](https://img.shields.io/badge/-Scikit%20learn-F7931E?logo=scikit-learn&logoColor=white&style=flat)](#) 
  
-[Ver codigo en Colab](https://colab.research.google.com/drive/1g2xKNu5Nqd0lnpFrac1OpUe5tb4Va6Go?usp=sharing)
-
 ---
 
 ### Proyecto final Data Analytics CoderHouse: Proyecto Juegos Olimpicos
 
-Juegos Olimpicos - Proyecto Final.pdf
+Proyecto final del curso de Data Analytics. Trabajo grupal enfocado en la presentación de las principales caracteristicas de los atletas de los Juegos Olimpicos.
 
 [Link al PDF](/pdf/Juegos_Olimpicos_Proyecto_Final.pdf)
 
