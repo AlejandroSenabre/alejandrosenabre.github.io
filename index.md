@@ -7,6 +7,9 @@ Proyecto personal para mostrar las capacidades que posee SQL como lenguaje de pr
 
 Ver Notebook: [Link](https://github.com/AlejandroSenabre/Data-Analysis-with-SQL/blob/main/BikeStore_with_SQL.ipynb)
 
+[![](https://img.shields.io/badge/-SQLite3-003B57?logo=sqlite&logoColor=white)](#) [![](https://img.shields.io/badge/-Python-E6E6FA?logo=python)](#) 
+
+
 --- 
 ### Proyecto Data Science: Predicción de riesgo crediticio
 
