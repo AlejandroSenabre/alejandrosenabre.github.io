@@ -1,5 +1,12 @@
 ## Selección de trabajos de Ciencia de Datos y Data Analytics (en progreso)
 
+
+### Proyecto Analisis de Datos con SQL y Python
+
+Proyecto personal para mostrar las capacidades que posee SQL como lenguaje de programación acompañada con visualizaciones en Python.
+
+Ver Notebook: [Link](https://github.com/AlejandroSenabre/Data-Analysis-with-SQL/blob/main/BikeStore_with_SQL.ipynb)
+
 --- 
 ### Proyecto Data Science: Predicción de riesgo crediticio
 
