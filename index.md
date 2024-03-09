@@ -19,7 +19,6 @@ Notebook de Python: [Ver codigo en Colab](https://colab.research.google.com/driv
 En esta presentación, se exploró los datos de la Fórmula 1 en Power BI, previamente obtenidos desde Kaggle. Se puede apreciar los datos historicos desde el comienzo del primer campeonato, y una sección para analizar cada escudería participante del año 2023.
 
 [Link al PDF](/pdf/F1_Resumen_2023.pdf)
-[Link al PDF en github]([/pdf/F1_Resumen_2023.pdf](https://github.com/AlejandroSenabre/alejandrosenabre.github.io/blob/main/pdf/F1_Resumen_2023.pdf))
 
 [![](https://img.shields.io/badge/-PowerBi-white?logo=powerbi&style=flat)](#) [![](https://img.shields.io/badge/-SQL_server-yellow?logo=Microsoft-SQL-Server&style=flat)](#) 
  
