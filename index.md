@@ -1,16 +1,6 @@
 ## Selección de trabajos de Ciencia de Datos y Data Analytics (en progreso)
 
 
-### Proyecto Analisis de Datos con SQL y Python
-
-Proyecto personal para mostrar las capacidades que posee SQL como lenguaje de programación acompañada con visualizaciones en Python.
-
-Ver Notebook: [Link](https://github.com/AlejandroSenabre/Data-Analysis-with-SQL/blob/main/BikeStore_with_SQL.ipynb)
-
-[![](https://img.shields.io/badge/-SQLite3-003B57?logo=sqlite&logoColor=white)](#) [![](https://img.shields.io/badge/-Python-E6E6FA?logo=python)](#) 
-
-
---- 
 ### Proyecto Data Science: Predicción de riesgo crediticio
 
 Proyecto enfocado en la predicción de riesgo de incobrabilidad en préstamos bancarios. Se presentó un contexto global para mostrar el impacto que tendrá en la morosidad ante un aumento de la tasa de interés. 
@@ -21,6 +11,16 @@ Notebook de Python: [Ver codigo en Colab](https://colab.research.google.com/driv
 
 
 [![](https://img.shields.io/badge/-Microsoft%20PowerPoint-FF4500?logo=microsoftpowerpoint)](#) [![](https://img.shields.io/badge/-Python-E6E6FA?logo=python)](#) [![](https://img.shields.io/badge/-Scikit%20learn-F7931E?logo=scikit-learn&logoColor=white&style=flat)](#) 
+
+---
+
+### Proyecto resumen F1
+
+En esta presentación, se exploró los datos de la Fórmula 1 en Power BI, previamente obtenidos desde Kaggle. Se puede apreciar los datos historicos desde el comienzo del primer campeonato, y una sección para analizar cada escudería participante del año 2023.
+
+[Link al PDF](/pdf/F1_Resumen_2023_PDF.pdf)
+
+[![](https://img.shields.io/badge/-PowerBi-white?logo=powerbi&style=flat)](#) [![](https://img.shields.io/badge/-SQL_server-yellow?logo=Microsoft-SQL-Server&style=flat)](#) 
  
 ---
 
@@ -31,6 +31,15 @@ Proyecto final del curso de Data Analytics. Trabajo grupal enfocado en la presen
 [Link al PDF](/pdf/Juegos_Olimpicos_Proyecto_Final.pdf)
 
 [![](https://img.shields.io/badge/-PowerBi-white?logo=powerbi&style=flat)](#) [![](https://img.shields.io/badge/-SQL_server-yellow?logo=Microsoft-SQL-Server&style=flat)](#) 
+
+
+### Proyecto Analisis de Datos con SQL y Python
+
+Proyecto personal para mostrar las capacidades que posee SQL como lenguaje de programación acompañada con visualizaciones en Python.
+
+Ver Notebook: [Link](https://github.com/AlejandroSenabre/Data-Analysis-with-SQL/blob/main/BikeStore_with_SQL.ipynb)
+
+[![](https://img.shields.io/badge/-SQLite3-003B57?logo=sqlite&logoColor=white)](#) [![](https://img.shields.io/badge/-Python-E6E6FA?logo=python)](#) 
 
 
 ---
