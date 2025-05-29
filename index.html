@@ -36,39 +36,6 @@
         .badge-powerbi { background-color: #F2C811; color: black; }
         .badge-sqlserver { background-color: #A9A9A9; color: #CC2927; border: 1px solid #CC2927; }
         .badge-sqlite { background-color: #003B57; color: white; }
-
-        /* Estilos para el Modal */
-        .modal {
-            transition: opacity 0.25s ease;
-        }
-        .modal-content {
-            transition: transform 0.25s ease;
-        }
-        .gemini-button {
-            background-color: #4f46e5; /* indigo-600 */
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem; /* rounded-md */
-            font-weight: 500;
-            font-size: 0.875rem; /* text-sm */
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-        }
-        .gemini-button:hover {
-            background-color: #4338ca; /* indigo-700 */
-        }
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border-left-color: #4f46e5; /* indigo-600 */
-            animation: spin 1s ease infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -121,10 +88,9 @@
                             <span class="badge badge-powerpoint">PowerPoint</span>
                         </div>
                         <div class="flex justify-between items-center mb-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Presentación (PDF)</a>
-                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Código en Colab</a>
+                            <a href="/pdf/Predicción_de_riesgo_crediticio_Final.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Presentación (PDF)</a>
+                            <a href="https://colab.research.google.com/drive/1g2xKNu5Nqd0lnpFrac1OpUe5tb4Va6Go?usp=sharing" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Código en Colab</a>
                         </div>
-                        <button class="gemini-button w-full explain-button">Resumir mediante IA ✨</button>
                     </div>
                 </div>
 
@@ -139,10 +105,9 @@
                             <span class="badge badge-powerbi">PowerBI</span>
                         </div>
                         <div class="flex justify-between items-center mb-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Presentación (PDF)</a>
-                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Detalles (PDF)</a>
+                            <a href="/pdf/F1_Resumen_2023.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Presentación (PDF)</a>
+                            <a href="/pdf/Explicacion_proyecto_f1.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Detalles (PDF)</a>
                         </div>
-                        <button class="gemini-button w-full explain-button">Resumir mediante IA ✨</button>
                     </div>
                 </div>
 
@@ -158,9 +123,8 @@
                             <span class="badge badge-sqlserver">SQL Server</span>
                         </div>
                         <div class="flex justify-between items-center mb-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Presentación (PDF)</a>
+                            <a href="/pdf/Juegos_Olimpicos_Proyecto_Final.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Presentación (PDF)</a>
                         </div>
-                        <button class="gemini-button w-full explain-button">Resumir mediante IA ✨</button>
                     </div>
                 </div>
 
@@ -176,9 +140,8 @@
                             <span class="badge badge-python">Python</span>
                         </div>
                         <div class="flex justify-between items-center mb-3">
-                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Notebook en GitHub</a>
+                            <a href="https://github.com/AlejandroSenabre/Data-Analysis-with-SQL/blob/main/BikeStore_with_SQL.ipynb" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Notebook en GitHub</a>
                         </div>
-                        <button class="gemini-button w-full explain-button">Resumir mediante IA ✨</button>
                     </div>
                 </div>
             </div>
@@ -192,124 +155,8 @@
         </div>
     </footer>
 
-    <div id="explanationModal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center p-4 hidden z-50">
-        <div class="modal-content bg-white p-8 rounded-lg shadow-xl w-full max-w-md mx-auto transform scale-95">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-semibold text-gray-700">Resumen mediante IA ✨</h3>
-                <button id="closeModalButton" class="text-gray-400 hover:text-gray-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            <div id="modalBody" class="text-gray-600 text-sm">
-                <div class="flex justify-center items-center h-32">
-                    <div class="spinner"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        const explanationModal = document.getElementById('explanationModal');
-        const closeModalButton = document.getElementById('closeModalButton');
-        const modalBody = document.getElementById('modalBody');
-        const explainButtons = document.querySelectorAll('.explain-button');
-
-        // Función para mostrar el modal
-        const showModal = () => {
-            explanationModal.classList.remove('hidden');
-            explanationModal.classList.add('opacity-100'); // Asegurar que sea visible
-            explanationModal.querySelector('.modal-content').classList.remove('scale-95');
-            explanationModal.querySelector('.modal-content').classList.add('scale-100');
-        };
-
-        // Función para ocultar el modal
-        const hideModal = () => {
-            explanationModal.querySelector('.modal-content').classList.add('scale-95');
-            explanationModal.querySelector('.modal-content').classList.remove('scale-100');
-            explanationModal.classList.add('opacity-0');
-            explanationModal.classList.remove('opacity-100');
-            setTimeout(() => {
-                explanationModal.classList.add('hidden');
-                modalBody.innerHTML = '<div class="flex justify-center items-center h-32"><div class="spinner"></div></div>';
-            }, 250); 
-        };
-
-        closeModalButton.addEventListener('click', hideModal);
-        explanationModal.addEventListener('click', (event) => {
-            if (event.target === explanationModal) {
-                hideModal();
-            }
-        });
-
-        if (explainButtons.length > 0) {
-            explainButtons.forEach(button => {
-                button.addEventListener('click', async (event) => {
-                    const projectCard = event.target.closest('.project-card');
-                    if (!projectCard) {
-                        console.error("Could not find project card for the clicked button.");
-                        return;
-                    }
-                    const projectTitleElement = projectCard.querySelector('.project-title');
-                    const projectDescriptionElement = projectCard.querySelector('.project-description');
-
-                    if (!projectTitleElement || !projectDescriptionElement) {
-                        console.error("Could not find project title or description element.");
-                        modalBody.innerHTML = "<p class='text-red-500'>Error: No se pudo encontrar el título o la descripción del proyecto en la tarjeta.</p>";
-                        showModal();
-                        return;
-                    }
-
-                    const projectTitle = projectTitleElement.textContent.trim();
-                    const projectDescription = projectDescriptionElement.textContent.trim();
-                    
-                    showModal(); // Mostrar modal ANTES de la llamada a la API
-                    modalBody.innerHTML = '<div class="flex justify-center items-center h-32"><div class="spinner"></div></div>'; 
-
-                    // MODIFICACIÓN DEL PROMPT: Ahora pide un resumen para alguien no experto pero con conocimientos básicos.
-                    const prompt = `Resume este proyecto de forma concisa y clara, dirigida a alguien que no es un experto en el campo pero tiene conocimientos básicos. Evita el lenguaje excesivamente técnico. Proyecto: "${projectTitle} - ${projectDescription}"`;
-                    console.log("Generated Prompt:", prompt);
-
-                    try {
-                        let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-                        const payload = { contents: chatHistory };
-                        const apiKey = ""; 
-                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                        
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        
-                        if (!response.ok) {
-                            const errorData = await response.json().catch(() => ({ error: { message: "Error al parsear respuesta de error de la API."} }));
-                            console.error('Error de la API de Gemini (data):', errorData);
-                            throw new Error(`Error de la API (${response.status}): ${errorData.error?.message || response.statusText}`);
-                        }
-
-                        const result = await response.json();
-                        
-                        let explanationText = "No se pudo generar el resumen en este momento. La respuesta de la API no tuvo el formato esperado.";
-                        if (result.candidates && result.candidates.length > 0 &&
-                            result.candidates[0].content && result.candidates[0].content.parts &&
-                            result.candidates[0].content.parts.length > 0) {
-                            explanationText = result.candidates[0].content.parts[0].text.replace(/\\n/g, '<br>');
-                        } else {
-                            console.warn("Respuesta inesperada o vacía de la API de Gemini:", result);
-                        }
-                        modalBody.innerHTML = explanationText;
-
-                    } catch (error) {
-                        console.error('Error durante la llamada a la API de Gemini o procesando la respuesta:', error);
-                        modalBody.innerHTML = `<p class="text-red-500 font-semibold">Lo siento, ocurrió un error.</p><p class="text-red-400 text-xs mt-1">No se pudo generar el resumen en este momento. Por favor, inténtalo de nuevo más tarde.</p><p class="text-xs text-gray-400 mt-2">Detalle técnico: ${error.message}</p>`;
-                    }
-                });
-            });
-        } else {
-            console.warn("No 'explain-button' elements found on the page.");
-        }
     </script>
 
 </body>
