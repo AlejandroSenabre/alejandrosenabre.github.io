@@ -95,44 +95,6 @@
             color: #a0aec0;
         }
 
-        /* Google Translate specific styles */
-        #google_translate_element .goog-te-gadget-simple {
-            background-color: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            padding: 0 !important;
-        }
-        #google_translate_element .goog-te-gadget-simple a {
-            color: #4a5568 !important; /* Adjust text color for light mode */
-            font-size: 0.875rem !important; /* text-sm */
-            font-weight: 500 !important;
-            text-decoration: none !important;
-        }
-        body.dark-mode #google_translate_element .goog-te-gadget-simple a {
-            color: #cbd5e0 !important; /* Adjust text color for dark mode */
-        }
-        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
-            color: inherit !important; /* Inherit color from parent */
-        }
-        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value img {
-            display: none !important; /* Hide Google Translate flag */
-        }
-        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:first-child {
-            display: none !important; /* Hide "Select Language" text */
-        }
-        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:last-child::after {
-            content: '▼'; /* Custom arrow */
-            font-size: 0.75rem;
-            margin-left: 0.25rem;
-        }
-        /* Hide Google Translate branding */
-        .goog-logo-link {
-            display: none !important;
-        }
-        .goog-te-gadget {
-            color: transparent !important;
-        }
-
         /* Styles for the toggle switch */
         .theme-switch {
             position: relative;
@@ -236,8 +198,6 @@
                 <a href="#projects" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Proyectos</a>
                 <a href="https://www.linkedin.com/in/alejandro-s-b1a594179/" target="_blank" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">LinkedIn</a>
                 
-                <div id="google_translate_element" class="ml-4"></div>
-
                 <label class="theme-switch ml-4">
                     <input type="checkbox" id="themeToggle">
                     <span class="slider">
@@ -360,21 +320,8 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // --- Google Translate Integration ---
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'es', // Set default page language to Spanish
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE, // Simple dropdown
-                autoDisplay: false // Do not automatically display the banner
-            }, 'google_translate_element');
-        }
-        // Load the Google Translate API script
-        // Note: The script is loaded dynamically to ensure googleTranslateElementInit is defined first.
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        document.body.appendChild(script);
-
+        // --- Google Translate Integration (Removed) ---
+        // The script and initialization for Google Translate have been removed.
 
         // --- Dark/Light Mode Toggle ---
         document.addEventListener('DOMContentLoaded', function() {
