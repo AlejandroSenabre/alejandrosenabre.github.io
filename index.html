@@ -7,8 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Base styles for light mode and transitions */
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* bg-gray-100 */
+            color: #374151; /* text-gray-800 */
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -36,6 +40,190 @@
         .badge-powerbi { background-color: #F2C811; color: black; }
         .badge-sqlserver { background-color: #A9A9A9; color: #CC2927; border: 1px solid #CC2927; }
         .badge-sqlite { background-color: #003B57; color: white; }
+
+        /* General element transitions for theme change */
+        header, .project-card, h1, h2, h3, nav a, p, a, footer, footer p, #about {
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        /* Dark Mode Overrides */
+        body.dark-mode {
+            background-color: #1a202c; /* Darker background */
+            color: #e2e8f0; /* Lighter text */
+        }
+
+        body.dark-mode header {
+            background-color: #2d3748; /* Darker header */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .project-card {
+            background-color: #2d3748; /* Darker card */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #e2e8f0;
+        }
+        body.dark-mode nav a {
+            color: #cbd5e0;
+        }
+        body.dark-mode nav a:hover {
+            color: #90cdf4;
+        }
+        body.dark-mode p {
+            color: #cbd5e0;
+        }
+        body.dark-mode a {
+            color: #90cdf4;
+        }
+        body.dark-mode a:hover {
+            color: #63b3ed;
+        }
+
+        body.dark-mode #about {
+            background: linear-gradient(to right, #1d4ed8, #4338ca); /* Darker gradient */
+            color: #e2e8f0;
+        }
+        body.dark-mode footer {
+            background-color: #1a202c; /* Darker footer */
+            color: #e2e8f0;
+        }
+        body.dark-mode footer p {
+            color: #a0aec0;
+        }
+
+        /* Google Translate specific styles */
+        #google_translate_element .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+        #google_translate_element .goog-te-gadget-simple a {
+            color: #4a5568 !important; /* Adjust text color for light mode */
+            font-size: 0.875rem !important; /* text-sm */
+            font-weight: 500 !important;
+            text-decoration: none !important;
+        }
+        body.dark-mode #google_translate_element .goog-te-gadget-simple a {
+            color: #cbd5e0 !important; /* Adjust text color for dark mode */
+        }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
+            color: inherit !important; /* Inherit color from parent */
+        }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value img {
+            display: none !important; /* Hide Google Translate flag */
+        }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:first-child {
+            display: none !important; /* Hide "Select Language" text */
+        }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:last-child {
+            padding-right: 0.5rem; /* Adjust padding for arrow */
+        }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:last-child::after {
+            content: '▼'; /* Custom arrow */
+            font-size: 0.75rem;
+            margin-left: 0.25rem;
+        }
+        /* Hide Google Translate branding */
+        .goog-logo-link {
+            display: none !important;
+        }
+        .goog-te-gadget {
+            color: transparent !important;
+        }
+
+        /* Styles for the toggle switch */
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px; /* Increased width for larger switch */
+            height: 30px; /* Increased height for larger switch */
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc; /* Light mode background */
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 30px; /* Rounded corners for slider */
+            display: flex; /* Use flexbox to center icons */
+            align-items: center;
+            padding: 0 5px; /* Padding for icons */
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 24px; /* Size of the sliding circle */
+            width: 24px; /* Size of the sliding circle */
+            left: 3px; /* Initial position */
+            bottom: 3px;
+            background-color: white; /* Color of the sliding circle */
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%; /* Make it a circle */
+        }
+
+        input:checked + .slider {
+            background-color: #4f46e5; /* Dark mode background (indigo-600) */
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #4f46e5;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(30px); /* Slide circle to the right */
+            -ms-transform: translateX(30px);
+            transform: translateX(30px);
+        }
+
+        /* Icon positioning within the slider */
+        .slider .icon-container {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px; /* Same as slider:before size */
+            height: 24px; /* Same as slider:before size */
+            transition: opacity 0.4s ease;
+        }
+
+        .slider .sun-icon {
+            left: 2px; /* Adjusted position: moved slightly more to the left */
+            color: #f59e0b; /* Yellow color for sun */
+        }
+
+        .slider .moon-icon {
+            right: 5px; /* Position moon icon on the right */
+            color: #e2e8f0; /* Light color for moon */
+        }
+
+        /* Hide/show icons based on checkbox state */
+        input:checked + .slider .sun-icon {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        input:not(:checked) + .slider .moon-icon {
+            opacity: 0;
+            visibility: hidden;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -46,10 +234,28 @@
                 <img src="https://placehold.co/50x50/EBF4FF/333333?text=AS" alt="Logo Alejandro Senabre" class="h-10 w-10 rounded-full mr-3">
                 <h1 class="text-2xl font-bold text-gray-700">Alejandro Senabre</h1>
             </div>
-            <nav>
+            <nav class="flex items-center">
                 <a href="#about" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Sobre Mí</a>
                 <a href="#projects" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Proyectos</a>
                 <a href="https://www.linkedin.com/in/alejandro-s-b1a594179/" target="_blank" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">LinkedIn</a>
+                
+                <div id="google_translate_element" class="ml-4"></div>
+
+                <label class="theme-switch ml-4">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider">
+                        <div class="icon-container sun-icon">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="icon-container moon-icon">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                            </svg>
+                        </div>
+                    </span>
+                </label>
             </nav>
         </div>
     </header>
@@ -157,6 +363,63 @@
 
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- Google Translate Integration ---
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es', // Set default page language to Spanish
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE, // Simple dropdown
+                autoDisplay: false // Do not automatically display the banner
+            }, 'google_translate_element');
+        }
+        // Load the Google Translate API script
+        // Note: The script is loaded dynamically to ensure googleTranslateElementInit is defined first.
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.body.appendChild(script);
+
+
+        // --- Dark/Light Mode Toggle ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle'); // This is now the checkbox input
+            const body = document.body;
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+
+            // Function to set the theme
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    body.classList.add('dark-mode');
+                    themeToggle.checked = true; // Ensure checkbox is checked for dark mode
+                    localStorage.setItem('theme', 'dark');
+                    // Show moon, hide sun (CSS handles this based on input:checked)
+                } else {
+                    body.classList.remove('dark-mode');
+                    themeToggle.checked = false; // Ensure checkbox is unchecked for light mode
+                    localStorage.setItem('theme', 'light');
+                    // Show sun, hide moon (CSS handles this based on input:not(:checked))
+                }
+            }
+
+            // Check saved theme from localStorage on page load
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                // Default theme if nothing is saved (e.g., 'light' or 'dark')
+                setTheme('light'); 
+            }
+
+            // Event listener for theme toggle (checkbox change event)
+            themeToggle.addEventListener('change', () => {
+                if (themeToggle.checked) { // If checkbox is checked, it means dark mode is desired
+                    setTheme('dark');
+                } else { // If checkbox is unchecked, it means light mode is desired
+                    setTheme('light');
+                }
+            });
+        });
     </script>
 
 </body>
