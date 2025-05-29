@@ -312,6 +312,36 @@
             background-color: #2563eb; /* Tailwind blue-600 */
             border-color: #2563eb;
         }
+
+        /* Style for the "Volver a Inicio" button */
+        .back-to-home-button {
+            background-color: #ef4444; /* Tailwind red-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 20px; /* Space above the button */
+            cursor: pointer;
+            border: none;
+        }
+
+        .back-to-home-button:hover {
+            background-color: #dc2626; /* Tailwind red-600 */
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Dark mode for "Volver a Inicio" button */
+        body.dark-mode .back-to-home-button {
+            background-color: #f87171; /* Tailwind red-400 */
+        }
+
+        body.dark-mode .back-to-home-button:hover {
+            background-color: #ef4444; /* Tailwind red-500 */
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -451,6 +481,7 @@
             <button class="modal-close" id="closePdfModal">&times;</button>
             <img id="modalThumbnail" src="" alt="Miniatura del proyecto" class="modal-image hidden">
             <iframe id="pdfViewer" class="modal-pdf-viewer" frameborder="0"></iframe>
+            <button id="backToHomeButton" class="back-to-home-button">Volver a Inicio</button>
         </div>
     </div>
 
@@ -498,40 +529,46 @@
         const closePdfModalButton = document.getElementById('closePdfModal');
         const pdfViewer = document.getElementById('pdfViewer');
         const modalThumbnail = document.getElementById('modalThumbnail');
-        const viewPdfLinks = document.querySelectorAll('.view-pdf-link'); // Selects elements with this class
+        const viewPdfLinks = document.querySelectorAll('.view-pdf-link');
+        const backToHomeButton = document.getElementById('backToHomeButton'); // Get the new button
 
         // Function to show the modal
         function showPdfModal(pdfUrl, thumbnailUrl) {
-            pdfViewer.src = pdfUrl; // Set PDF source
+            console.log("Attempting to show modal for PDF:", pdfUrl);
+            pdfViewer.src = pdfUrl;
             
             if (thumbnailUrl) {
-                modalThumbnail.src = thumbnailUrl; // Set thumbnail source
-                modalThumbnail.classList.remove('hidden'); // Show thumbnail
+                modalThumbnail.src = thumbnailUrl;
+                modalThumbnail.classList.remove('hidden');
+                console.log("Thumbnail set to:", thumbnailUrl);
             } else {
-                modalThumbnail.classList.add('hidden'); // Hide thumbnail if no URL provided
-                modalThumbnail.src = ''; // Clear source
+                modalThumbnail.classList.add('hidden');
+                modalThumbnail.src = '';
+                console.log("No thumbnail provided.");
             }
 
-            pdfModal.classList.add('show'); // Show the modal overlay
-            document.body.style.overflow = 'hidden'; // Prevent scrolling on body
+            pdfModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            console.log("Modal should be visible now.");
         }
 
         // Function to hide the modal
         function hidePdfModal() {
-            pdfModal.classList.remove('show'); // Hide the modal overlay
-            document.body.style.overflow = ''; // Restore scrolling on body
-            pdfViewer.src = ''; // Clear PDF source to stop loading
-            modalThumbnail.src = ''; // Clear thumbnail source
+            console.log("Attempting to hide modal.");
+            pdfModal.classList.remove('show');
+            document.body.style.overflow = '';
+            pdfViewer.src = '';
+            modalThumbnail.src = '';
+            console.log("Modal should be hidden now.");
         }
 
         // Event listeners for PDF links (now buttons)
         viewPdfLinks.forEach(link => {
             link.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default link behavior
+                event.preventDefault();
+                console.log("PDF link clicked.");
 
-                const pdfUrl = this.href; // Get the PDF URL from the link's href
-
-                // Get the thumbnail URL from the corresponding project card's image
+                const pdfUrl = this.href;
                 const projectCard = this.closest('.project-card');
                 let thumbnailUrl = '';
                 if (projectCard) {
@@ -547,6 +584,9 @@
 
         // Event listener for closing the modal
         closePdfModalButton.addEventListener('click', hidePdfModal);
+
+        // Event listener for the new "Volver a Inicio" button
+        backToHomeButton.addEventListener('click', hidePdfModal); // This button also just hides the modal
 
         // Close modal when clicking outside the content
         pdfModal.addEventListener('click', function(event) {
