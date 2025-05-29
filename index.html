@@ -183,165 +183,6 @@
             opacity: 0;
             visibility: hidden;
         }
-
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000; /* Ensure it's on top of everything */
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .modal-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 90%; /* Max width for responsiveness */
-            max-height: 90vh; /* Max height for responsiveness */
-            width: 800px; /* Default width */
-            overflow-y: auto; /* Enable scrolling for content if needed */
-            position: relative;
-            transform: translateY(-20px); /* Initial slight upward translation */
-            transition: transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .modal-overlay.show .modal-content {
-            transform: translateY(0); /* Slide into place */
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #666;
-            background: none;
-            border: none;
-            padding: 5px;
-            border-radius: 50%;
-            transition: color 0.2s ease, background-color 0.2s ease;
-        }
-
-        .modal-close:hover {
-            color: #333;
-            background-color: #eee;
-        }
-
-        .modal-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            max-height: 200px; /* Limit height of initial image */
-            object-fit: contain; /* Ensure image fits without cropping */
-        }
-
-        .modal-pdf-viewer {
-            width: 100%;
-            height: 60vh; /* Adjust height as needed for the PDF viewer */
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        /* Dark mode for modal */
-        body.dark-mode .modal-content {
-            background-color: #2d3748;
-            color: #e2e8f0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
-
-        body.dark-mode .modal-close {
-            color: #cbd5e0;
-        }
-
-        body.dark-mode .modal-close:hover {
-            color: #e2e8f0;
-            background-color: #4a5568;
-        }
-
-        /* Styles for the PDF button */
-        .pdf-button {
-            display: inline-block;
-            background-color: transparent; /* Changed for better visibility in light mode */
-            color: #4f46e5; /* Changed for better visibility in light mode */
-            border: 1px solid #4f46e5; /* Added border for better visibility in light mode */
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem; /* rounded-md */
-            font-size: 0.875rem; /* text-sm */
-            font-weight: 500;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease, border-color 0.3s ease;
-            text-align: center; /* Ensure text is centered in button */
-            white-space: nowrap; /* Prevent text wrapping */
-        }
-
-        .pdf-button:hover {
-            background-color: #4f46e5; /* Changed to solid background on hover */
-            color: white; /* Changed text color on hover */
-            transform: translateY(-1px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        /* Dark mode for PDF button */
-        body.dark-mode .pdf-button {
-            background-color: #3b82f6; /* Tailwind blue-500 */
-            color: white;
-            border-color: #3b82f6; /* Ensure border matches background in dark mode */
-        }
-
-        body.dark-mode .pdf-button:hover {
-            background-color: #2563eb; /* Tailwind blue-600 */
-            border-color: #2563eb;
-        }
-
-        /* Style for the "Volver a Inicio" button */
-        .back-to-home-button {
-            background-color: #ef4444; /* Tailwind red-500 */
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem; /* rounded-lg */
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            margin-top: 20px; /* Space above the button */
-            cursor: pointer;
-            border: none;
-        }
-
-        .back-to-home-button:hover {
-            background-color: #dc2626; /* Tailwind red-600 */
-            transform: translateY(-1px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        /* Dark mode for "Volver a Inicio" button */
-        body.dark-mode .back-to-home-button {
-            background-color: #f87171; /* Tailwind red-400 */
-        }
-
-        body.dark-mode .back-to-home-button:hover {
-            background-color: #ef4444; /* Tailwind red-500 */
-        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -398,7 +239,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-                    <img src="images/thumbnails/RK1_Meta_Generated_Image.png" alt="Imagen del proyecto de predicción de riesgo crediticio" class="w-full h-48 object-cover project-thumbnail">
+                    <img src="images/thumbnails/RK1_Meta_Generated_Image.png" alt="Imagen del proyecto de predicción de riesgo crediticio" class="w-full h-48 object-cover">
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-semibold text-gray-700 mb-2 project-title">Predicción de Riesgo Crediticio</h3>
                         <p class="text-gray-600 text-sm mb-4 project-description flex-grow">
@@ -410,14 +251,14 @@
                             <span class="badge badge-powerpoint">PowerPoint</span>
                         </div>
                         <div class="flex justify-between items-center mb-3">
-                            <a href="/pdf/Predicción_de_riesgo_crediticio_Final.pdf" class="text-blue-600 hover:text-blue-800 font-medium text-sm view-pdf-link pdf-button">Ver Presentación</a>
+                            <a href="/pdf/Predicción_de_riesgo_crediticio_Final.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Presentación (PDF)</a>
                             <a href="https://colab.research.google.com/drive/1g2xKNu5Nqd0lnpFrac1OpUe5tb4Va6Go?usp=sharing" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Código en Colab</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-                    <img src="images/thumbnails/Formula11_Gemini_Generated_Image.png" alt="Imagen del proyecto de resumen de Fórmula 1" class="w-full h-48 object-cover project-thumbnail">
+                    <img src="images/thumbnails/Formula11_Gemini_Generated_Image.png" alt="Imagen del proyecto de resumen de Fórmula 1" class="w-full h-48 object-cover">
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-semibold text-gray-700 mb-2 project-title">Proyecto Resumen F1</h3>
                         <p class="text-gray-600 text-sm mb-4 project-description flex-grow">
@@ -427,14 +268,14 @@
                             <span class="badge badge-powerbi">PowerBI</span>
                         </div>
                         <div class="flex justify-between items-center mb-3">
-                            <a href="/pdf/F1_Resumen_2023.pdf" class="text-blue-600 hover:text-blue-800 font-medium text-sm view-pdf-link pdf-button">Ver Presentación</a>
-                            <a href="/pdf/Explicacion_proyecto_f1.pdf" class="text-blue-600 hover:text-blue-800 font-medium text-sm view-pdf-link pdf-button">Ver Detalles</a>
+                            <a href="/pdf/F1_Resumen_2023.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Presentación (PDF)</a>
+                            <a href="/pdf/Explicacion_proyecto_f1.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Detalles (PDF)</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-                    <img src="images/thumbnails/OG1_Gemini_Generated_Image.png" alt="Imagen del proyecto de Juegos Olímpicos" class="w-full h-48 object-cover project-thumbnail">
+                    <img src="images/thumbnails/OG1_Gemini_Generated_Image.png" alt="Imagen del proyecto de Juegos Olímpicos" class="w-full h-48 object-cover">
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-semibold text-gray-700 mb-2 project-title">Proyecto Juegos Olímpicos</h3>
                         <p class="text-gray-600 text-sm mb-4 project-description flex-grow">
@@ -444,13 +285,13 @@
                             <span class="badge badge-powerbi">PowerBI</span>
                         </div>
                         <div class="flex justify-between items-center mb-3">
-                            <a href="/pdf/Juegos_Olimpicos_Proyecto_Final.pdf" class="text-blue-600 hover:text-blue-800 font-medium text-sm view-pdf-link pdf-button">Ver Presentación</a>
+                            <a href="/pdf/Juegos_Olimpicos_Proyecto_Final.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Presentación (PDF)</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-                    <img src="https://placehold.co/600x400/CFFAFE/333333?text=SQL+y+Python" alt="Imagen del proyecto de análisis de datos con SQL y Python" class="w-full h-48 object-cover project-thumbnail">
+                    <img src="https://placehold.co/600x400/CFFAFE/333333?text=SQL+y+Python" alt="Imagen del proyecto de análisis de datos con SQL y Python" class="w-full h-48 object-cover">
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-semibold text-gray-700 mb-2 project-title">Análisis de Datos con SQL y Python</h3>
                         <p class="text-gray-600 text-sm mb-4 project-description flex-grow">
@@ -476,33 +317,31 @@
         </div>
     </footer>
 
-    <div id="pdfModal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <button class="modal-close" id="closePdfModal">&times;</button>
-            <img id="modalThumbnail" src="" alt="Miniatura del proyecto" class="modal-image hidden">
-            <iframe id="pdfViewer" class="modal-pdf-viewer" frameborder="0"></iframe>
-            <button id="backToHomeButton" class="back-to-home-button">Volver a Inicio</button>
-        </div>
-    </div>
-
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+        // --- Google Translate Integration (Removed) ---
+        // The script and initialization for Google Translate have been removed.
+
         // --- Dark/Light Mode Toggle ---
         document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('themeToggle');
+            const themeToggle = document.getElementById('themeToggle'); // This is now the checkbox input
             const body = document.body;
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
 
             // Function to set the theme
             function setTheme(theme) {
                 if (theme === 'dark') {
                     body.classList.add('dark-mode');
-                    themeToggle.checked = true;
+                    themeToggle.checked = true; // Ensure checkbox is checked for dark mode
                     localStorage.setItem('theme', 'dark');
+                    // Show moon, hide sun (CSS handles this based on input:checked)
                 } else {
                     body.classList.remove('dark-mode');
-                    themeToggle.checked = false;
+                    themeToggle.checked = false; // Ensure checkbox is unchecked for light mode
                     localStorage.setItem('theme', 'light');
+                    // Show sun, hide moon (CSS handles this based on input:not(:checked))
                 }
             }
 
@@ -511,88 +350,18 @@
             if (savedTheme) {
                 setTheme(savedTheme);
             } else {
-                setTheme('light');
+                // Default theme if nothing is saved (e.g., 'light' or 'dark')
+                setTheme('light'); 
             }
 
             // Event listener for theme toggle (checkbox change event)
             themeToggle.addEventListener('change', () => {
-                if (themeToggle.checked) {
+                if (themeToggle.checked) { // If checkbox is checked, it means dark mode is desired
                     setTheme('dark');
-                } else {
+                } else { // If checkbox is unchecked, it means light mode is desired
                     setTheme('light');
                 }
             });
-        });
-
-        // --- PDF Viewer Modal Logic ---
-        const pdfModal = document.getElementById('pdfModal');
-        const closePdfModalButton = document.getElementById('closePdfModal');
-        const pdfViewer = document.getElementById('pdfViewer');
-        const modalThumbnail = document.getElementById('modalThumbnail');
-        const viewPdfLinks = document.querySelectorAll('.view-pdf-link');
-        const backToHomeButton = document.getElementById('backToHomeButton'); // Get the new button
-
-        // Function to show the modal
-        function showPdfModal(pdfUrl, thumbnailUrl) {
-            console.log("Attempting to show modal for PDF:", pdfUrl);
-            pdfViewer.src = pdfUrl;
-            
-            if (thumbnailUrl) {
-                modalThumbnail.src = thumbnailUrl;
-                modalThumbnail.classList.remove('hidden');
-                console.log("Thumbnail set to:", thumbnailUrl);
-            } else {
-                modalThumbnail.classList.add('hidden');
-                modalThumbnail.src = '';
-                console.log("No thumbnail provided.");
-            }
-
-            pdfModal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-            console.log("Modal should be visible now.");
-        }
-
-        // Function to hide the modal
-        function hidePdfModal() {
-            console.log("Attempting to hide modal.");
-            pdfModal.classList.remove('show');
-            document.body.style.overflow = '';
-            pdfViewer.src = '';
-            modalThumbnail.src = '';
-            console.log("Modal should be hidden now.");
-        }
-
-        // Event listeners for PDF links (now buttons)
-        viewPdfLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                console.log("PDF link clicked.");
-
-                const pdfUrl = this.href;
-                const projectCard = this.closest('.project-card');
-                let thumbnailUrl = '';
-                if (projectCard) {
-                    const thumbnailImg = projectCard.querySelector('.project-thumbnail');
-                    if (thumbnailImg) {
-                        thumbnailUrl = thumbnailImg.src;
-                    }
-                }
-                
-                showPdfModal(pdfUrl, thumbnailUrl);
-            });
-        });
-
-        // Event listener for closing the modal
-        closePdfModalButton.addEventListener('click', hidePdfModal);
-
-        // Event listener for the new "Volver a Inicio" button
-        backToHomeButton.addEventListener('click', hidePdfModal); // This button also just hides the modal
-
-        // Close modal when clicking outside the content
-        pdfModal.addEventListener('click', function(event) {
-            if (event.target === pdfModal) {
-                hidePdfModal();
-            }
         });
     </script>
 
