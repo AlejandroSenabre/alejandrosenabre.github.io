@@ -16,10 +16,20 @@
         }
         .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .project-card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-description {
+            flex-grow: 1;
         }
         .badge {
             display: inline-block;
@@ -48,141 +58,200 @@
 
         /* Dark Mode Overrides */
         body.dark-mode {
-            background-color: #1a202c; /* Darker background */
-            color: #e2e8f0; /* Lighter text */
+            background-color: #1f2937; /* bg-gray-800 */
+            color: #f3f4f6; /* text-gray-100 */
         }
 
         body.dark-mode header {
-            background-color: #2d3748; /* Darker header */
+            background-color: #374151; /* bg-gray-700 */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
         }
 
         body.dark-mode .project-card {
-            background-color: #2d3748; /* Darker card */
+            background-color: #374151; /* bg-gray-700 */
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
         }
+        
+        body.dark-mode .project-card h3 {
+             color: #f3f4f6; /* text-gray-100 */
+        }
+        body.dark-mode .project-card p {
+             color: #d1d5db; /* text-gray-300 */
+        }
+        body.dark-mode .project-card .project-link-button {
+            background-color: #4b5563; /* bg-gray-600 */
+            color: #f3f4f6; /* text-gray-100 */
+        }
+         body.dark-mode .project-card .project-link-button:hover {
+            background-color: #525a66; /* bg-gray-500 */
+        }
+
 
         body.dark-mode h1,
         body.dark-mode h2,
-        body.dark-mode h3 {
-            color: #e2e8f0;
+        body.dark-mode h3.section-title { /* Target section titles specifically */
+            color: #f3f4f6; /* text-gray-100 */
         }
         body.dark-mode nav a {
-            color: #cbd5e0;
+            color: #d1d5db; /* text-gray-300 */
         }
         body.dark-mode nav a:hover {
-            color: #90cdf4;
+            color: #60a5fa; /* text-blue-400 */
         }
         body.dark-mode p {
-            color: #cbd5e0;
+            color: #d1d5db; /* text-gray-300 */
         }
-        body.dark-mode a {
-            color: #90cdf4;
+        body.dark-mode a:not(.project-link-button):not(.linkedin-button) { /* Avoid overriding specific button links */
+            color: #60a5fa; /* text-blue-400 */
         }
-        body.dark-mode a:hover {
-            color: #63b3ed;
+        body.dark-mode a:not(.project-link-button):not(.linkedin-button):hover {
+            color: #3b82f6; /* text-blue-500 */
+        }
+        body.dark-mode .linkedin-button {
+            background-color: #e5e7eb; /* bg-gray-200 */
+            color: #1e3a8a; /* text-blue-800 */
+        }
+         body.dark-mode .linkedin-button:hover {
+            background-color: #d1d5db; /* bg-gray-300 */
         }
 
+
         body.dark-mode #about {
-            background: linear-gradient(to right, #1d4ed8, #4338ca); /* Darker gradient */
-            color: #e2e8f0;
+            background: linear-gradient(to right, #1e3a8a, #312e81); /* Darker: from-blue-800 to-indigo-800 */
+            color: #f3f4f6; /* text-gray-100 */
         }
         body.dark-mode footer {
-            background-color: #1a202c; /* Darker footer */
-            color: #e2e8f0;
+            background-color: #1f2937; /* bg-gray-800 */
+            color: #f3f4f6; /* text-gray-100 */
         }
         body.dark-mode footer p {
-            color: #a0aec0;
+            color: #9ca3af; /* text-gray-400 */
         }
 
         /* Styles for the toggle switch */
         .theme-switch {
             position: relative;
             display: inline-block;
-            width: 60px; /* Increased width for larger switch */
-            height: 30px; /* Increased height for larger switch */
+            width: 60px; 
+            height: 30px; 
         }
-
-        .theme-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
+        .theme-switch input { opacity: 0; width: 0; height: 0; }
         .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc; /* Light mode background */
-            -webkit-transition: .4s;
-            transition: .4s;
-            border-radius: 30px; /* Rounded corners for slider */
-            display: flex; /* Use flexbox to center icons */
-            align-items: center;
-            padding: 0 5px; /* Padding for icons */
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc; transition: .4s; border-radius: 30px;
+            display: flex; align-items: center; padding: 0 5px; 
         }
-
         .slider:before {
-            position: absolute;
-            content: "";
-            height: 24px; /* Size of the sliding circle */
-            width: 24px; /* Size of the sliding circle */
-            left: 3px; /* Initial position */
-            bottom: 3px;
-            background-color: white; /* Color of the sliding circle */
-            -webkit-transition: .4s;
-            transition: .4s;
-            border-radius: 50%; /* Make it a circle */
+            position: absolute; content: ""; height: 24px; width: 24px;
+            left: 3px; bottom: 3px; background-color: white;
+            transition: .4s; border-radius: 50%;
         }
-
-        input:checked + .slider {
-            background-color: #4f46e5; /* Dark mode background (indigo-600) */
-        }
-
-        input:focus + .slider {
-            box-shadow: 0 0 1px #4f46e5;
-        }
-
-        input:checked + .slider:before {
-            -webkit-transform: translateX(30px); /* Slide circle to the right */
-            -ms-transform: translateX(30px);
-            transform: translateX(30px);
-        }
-
-        /* Icon positioning within the slider */
+        input:checked + .slider { background-color: #4f46e5; }
+        input:focus + .slider { box-shadow: 0 0 1px #4f46e5; }
+        input:checked + .slider:before { transform: translateX(30px); }
         .slider .icon-container {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px; /* Same as slider:before size */
-            height: 24px; /* Same as slider:before size */
-            transition: opacity 0.4s ease;
+            position: absolute; display: flex; align-items: center; justify-content: center;
+            width: 24px; height: 24px; transition: opacity 0.4s ease;
+        }
+        .slider .sun-icon { left: 2px; color: #f59e0b; }
+        .slider .moon-icon { right: 5px; color: #e2e8f0; }
+        input:checked + .slider .sun-icon { opacity: 0; visibility: hidden; }
+        input:not(:checked) + .slider .moon-icon { opacity: 0; visibility: hidden; }
+
+        /* Modal Styles */
+        .modal {
+            transition: opacity 0.25s ease; /* Duración de la transición de opacidad */
+        }
+        .modal-content {
+            transition: transform 0.25s ease; /* Duración de la transición de escala */
+        }
+        body.dark-mode .modal-content {
+            background-color: #374151; /* bg-gray-700 */
+            color: #f3f4f6; /* text-gray-100 */
+        }
+        body.dark-mode .modal-content h3 {
+            color: #f3f4f6; /* text-gray-100 */
+        }
+         body.dark-mode .modal-content p {
+            color: #d1d5db; /* text-gray-300 */
         }
 
-        .slider .sun-icon {
-            left: 2px; /* Adjusted position: moved slightly more to the left */
-            color: #f59e0b; /* Yellow color for sun */
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #4f46e5; /* indigo-600 */
+            animation: spin 1s ease infinite;
+        }
+        body.dark-mode .spinner {
+            border-left-color: #818cf8; /* indigo-400 for dark mode */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        .slider .moon-icon {
-            right: 5px; /* Position moon icon on the right */
-            color: #e2e8f0; /* Light color for moon */
+        .project-link-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #3b82f6; /* bg-blue-500 */
+            color: white;
+            font-weight: 500; /* font-medium */
+            padding-top: 0.5rem; /* py-2 */
+            padding-bottom: 0.5rem; /* py-2 */
+            padding-left: 1rem; /* px-4 */
+            padding-right: 1rem; /* px-4 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-size: 0.875rem; /* text-sm */
+            transition: background-color 0.3s ease;
+        }
+        .project-link-button:hover {
+            background-color: #2563eb; /* bg-blue-600 */
+        }
+        .project-link-button.secondary {
+            background-color: #10b981; /* bg-emerald-500 */
+        }
+        .project-link-button.secondary:hover {
+            background-color: #059669; /* bg-emerald-600 */
+        }
+        body.dark-mode .project-link-button.secondary {
+            background-color: #34d399; /* bg-emerald-400 */
+        }
+        body.dark-mode .project-link-button.secondary:hover {
+            background-color: #10b981; /* bg-emerald-500 */
         }
 
-        /* Hide/show icons based on checkbox state */
-        input:checked + .slider .sun-icon {
-            opacity: 0;
-            visibility: hidden;
+
+        .ai-summary-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #7c3aed; /* bg-violet-600 */
+            color: white;
+            font-weight: 500; /* font-medium */
+            padding-top: 0.5rem; /* py-2 */
+            padding-bottom: 0.5rem; /* py-2 */
+            padding-left: 1rem; /* px-4 */
+            padding-right: 1rem; /* px-4 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-size: 0.875rem; /* text-sm */
+            transition: background-color 0.3s ease;
+            margin-top: 0.75rem; /* mt-3 */
+        }
+        .ai-summary-button:hover {
+            background-color: #6d28d9; /* bg-violet-700 */
+        }
+         body.dark-mode .ai-summary-button {
+            background-color: #8b5cf6; /* bg-violet-500 */
+        }
+        body.dark-mode .ai-summary-button:hover {
+            background-color: #7c3aed; /* bg-violet-600 */
         }
 
-        input:not(:checked) + .slider .moon-icon {
-            opacity: 0;
-            visibility: hidden;
-        }
+
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -217,7 +286,7 @@
         </div>
     </header>
 
-    <section id="about" class="py-16 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <section id="about" class="py-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold mb-4">¡Hola! Soy Alejandro Senabre</h2>
             <p class="text-lg leading-relaxed max-w-2xl mx-auto mb-2">
@@ -226,7 +295,7 @@
             <p class="text-lg leading-relaxed max-w-2xl mx-auto mb-6">
                 Apasionado por transformar datos en insights accionables, con un fuerte enfoque en Data Science y Machine Learning. Buscando aplicar mis habilidades analíticas para resolver problemas complejos.
             </p>
-            <a href="https://www.linkedin.com/in/alejandro-s-b1a594179/" target="_blank" class="bg-white text-indigo-600 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition duration-300">
+            <a href="https://www.linkedin.com/in/alejandro-s-b1a594179/" target="_blank" class="linkedin-button bg-white text-indigo-700 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition duration-300">
                 Conéctate en LinkedIn
             </a>
         </div>
@@ -234,15 +303,15 @@
 
     <section id="projects" class="py-16">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-700 mb-12">Proyectos Destacados</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-700 mb-12 section-title">Proyectos Destacados</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
                     <img src="images/thumbnails/RK1_Meta_Generated_Image.png" alt="Imagen del proyecto de predicción de riesgo crediticio" class="w-full h-48 object-cover">
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 project-card-content">
                         <h3 class="text-xl font-semibold text-gray-700 mb-2 project-title">Predicción de Riesgo Crediticio</h3>
-                        <p class="text-gray-600 text-sm mb-4 project-description flex-grow">
+                        <p class="text-gray-600 text-sm mb-4 project-description">
                             Análisis predictivo del riesgo de incobrabilidad en préstamos, considerando el impacto de tasas de interés.
                         </p>
                         <div class="mb-4">
@@ -250,59 +319,64 @@
                             <span class="badge badge-scikitlearn">Scikit-learn</span>
                             <span class="badge badge-powerpoint">PowerPoint</span>
                         </div>
-                        <div class="flex justify-between items-center mb-3">
-                            <a href="/pdf/Predicción_de_riesgo_crediticio_Final.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Presentación (PDF)</a>
-                            <a href="https://colab.research.google.com/drive/1g2xKNu5Nqd0lnpFrac1OpUe5tb4Va6Go?usp=sharing" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Código en Colab</a>
+                        <div class="mt-auto space-y-2">
+                            <a href="/pdf/Predicción_de_riesgo_crediticio_Final.pdf" target="_blank" class="project-link-button">Ver Presentación (PDF)</a>
+                            <a href="https://colab.research.google.com/drive/1g2xKNu5Nqd0lnpFrac1OpUe5tb4Va6Go?usp=sharing" target="_blank" class="project-link-button secondary">Código en Colab</a>
+                            <button class="ai-summary-button" data-projectid="riesgoCrediticio">Ver resumen por IA ✨</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
                     <img src="images/thumbnails/Formula11_Gemini_Generated_Image.png" alt="Imagen del proyecto de resumen de Fórmula 1" class="w-full h-48 object-cover">
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 project-card-content">
                         <h3 class="text-xl font-semibold text-gray-700 mb-2 project-title">Proyecto Resumen F1</h3>
-                        <p class="text-gray-600 text-sm mb-4 project-description flex-grow">
+                        <p class="text-gray-600 text-sm mb-4 project-description">
                             Presentación de datos históricos y actuales de la Fórmula 1, con potencial de expansión.
                         </p>
                         <div class="mb-4">
                             <span class="badge badge-powerbi">PowerBI</span>
                         </div>
-                        <div class="flex justify-between items-center mb-3">
-                            <a href="/pdf/F1_Resumen_2023.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Presentación (PDF)</a>
-                            <a href="/pdf/Explicacion_proyecto_f1.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Detalles (PDF)</a>
+                        <div class="mt-auto space-y-2">
+                            <a href="/pdf/F1_Resumen_2023.pdf" target="_blank" class="project-link-button">Presentación (PDF)</a>
+                            <a href="/pdf/Explicacion_proyecto_f1.pdf" target="_blank" class="project-link-button secondary">Detalles (PDF)</a>
+                            <button class="ai-summary-button" data-projectid="resumenF1">Ver resumen por IA ✨</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
                     <img src="images/thumbnails/OG1_Gemini_Generated_Image.png" alt="Imagen del proyecto de Juegos Olímpicos" class="w-full h-48 object-cover">
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 project-card-content">
                         <h3 class="text-xl font-semibold text-gray-700 mb-2 project-title">Proyecto Juegos Olímpicos</h3>
-                        <p class="text-gray-600 text-sm mb-4 project-description flex-grow">
+                        <p class="text-gray-600 text-sm mb-4 project-description">
                             Trabajo grupal sobre las características de los atletas olímpicos. Proyecto final de Data Analytics.
                         </p>
                         <div class="mb-4">
                             <span class="badge badge-powerbi">PowerBI</span>
+                             <span class="badge badge-sqlserver">SQL Server</span>
                         </div>
-                        <div class="flex justify-between items-center mb-3">
-                            <a href="/pdf/Juegos_Olimpicos_Proyecto_Final.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Presentación (PDF)</a>
+                        <div class="mt-auto space-y-2">
+                            <a href="/pdf/Juegos_Olimpicos_Proyecto_Final.pdf" target="_blank" class="project-link-button">Ver Presentación (PDF)</a>
+                            <button class="ai-summary-button" data-projectid="juegosOlimpicos">Ver resumen por IA ✨</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden">
                     <img src="https://placehold.co/600x400/CFFAFE/333333?text=SQL+y+Python" alt="Imagen del proyecto de análisis de datos con SQL y Python" class="w-full h-48 object-cover">
-                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="p-6 project-card-content">
                         <h3 class="text-xl font-semibold text-gray-700 mb-2 project-title">Análisis de Datos con SQL y Python</h3>
-                        <p class="text-gray-600 text-sm mb-4 project-description flex-grow">
+                        <p class="text-gray-600 text-sm mb-4 project-description">
                             Demostración de capacidades de SQL para análisis de datos, complementado con visualizaciones en Python.
                         </p>
                         <div class="mb-4">
                             <span class="badge badge-sqlite">SQLite</span>
                             <span class="badge badge-python">Python</span>
                         </div>
-                        <div class="flex justify-between items-center mb-3">
-                            <a href="https://github.com/AlejandroSenabre/Data-Analysis-with-SQL/blob/main/BikeStore_with_SQL.ipynb" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Ver Notebook en GitHub</a>
+                        <div class="mt-auto space-y-2">
+                            <a href="https://github.com/AlejandroSenabre/Data-Analysis-with-SQL/blob/main/BikeStore_with_SQL.ipynb" target="_blank" class="project-link-button">Ver Notebook en GitHub</a>
+                            <button class="ai-summary-button" data-projectid="sqlPython">Ver resumen por IA ✨</button>
                         </div>
                     </div>
                 </div>
@@ -317,50 +391,131 @@
         </div>
     </footer>
 
+    <div id="aiSummaryModal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center p-4 hidden opacity-0 z-50">
+        <div class="modal-content bg-white p-8 rounded-lg shadow-xl w-full max-w-md mx-auto transform scale-95">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="aiSummaryModalTitle" class="text-xl font-semibold text-gray-700">Resumen por IA ✨</h3>
+                <button id="closeAiSummaryModalButton" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="aiSummaryModalBody" class="text-gray-600 text-sm">
+                <div class="flex justify-center items-center h-32">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // --- Google Translate Integration (Removed) ---
-        // The script and initialization for Google Translate have been removed.
-
         // --- Dark/Light Mode Toggle ---
         document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('themeToggle'); // This is now the checkbox input
+            const themeToggle = document.getElementById('themeToggle'); 
             const body = document.body;
-            const sunIcon = document.querySelector('.sun-icon');
-            const moonIcon = document.querySelector('.moon-icon');
-
-            // Function to set the theme
+            
             function setTheme(theme) {
                 if (theme === 'dark') {
                     body.classList.add('dark-mode');
-                    themeToggle.checked = true; // Ensure checkbox is checked for dark mode
+                    themeToggle.checked = true; 
                     localStorage.setItem('theme', 'dark');
-                    // Show moon, hide sun (CSS handles this based on input:checked)
                 } else {
                     body.classList.remove('dark-mode');
-                    themeToggle.checked = false; // Ensure checkbox is unchecked for light mode
+                    themeToggle.checked = false; 
                     localStorage.setItem('theme', 'light');
-                    // Show sun, hide moon (CSS handles this based on input:not(:checked))
                 }
             }
 
-            // Check saved theme from localStorage on page load
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
                 setTheme(savedTheme);
             } else {
-                // Default theme if nothing is saved (e.g., 'light' or 'dark')
                 setTheme('light'); 
             }
 
-            // Event listener for theme toggle (checkbox change event)
             themeToggle.addEventListener('change', () => {
-                if (themeToggle.checked) { // If checkbox is checked, it means dark mode is desired
-                    setTheme('dark');
-                } else { // If checkbox is unchecked, it means light mode is desired
-                    setTheme('light');
+                setTheme(themeToggle.checked ? 'dark' : 'light');
+            });
+
+            // --- AI Summary Modal Logic ---
+            const aiSummaryModal = document.getElementById('aiSummaryModal');
+            const aiSummaryModalTitle = document.getElementById('aiSummaryModalTitle');
+            const closeAiSummaryModalButton = document.getElementById('closeAiSummaryModalButton');
+            const aiSummaryModalBody = document.getElementById('aiSummaryModalBody');
+            const aiSummaryButtons = document.querySelectorAll('.ai-summary-button');
+
+            const placeholderSummaries = {
+                riesgoCrediticio: "Este proyecto usa datos y modelos inteligentes para ayudar a los bancos a tomar mejores decisiones sobre a quién prestar dinero, ¡minimizando riesgos como un detective financiero!",
+                resumenF1: "Visualiza la emoción de la Fórmula 1 con datos clave sobre pilotos, carreras y campeonatos, todo presentado de forma clara para entender el mundo de la alta velocidad.",
+                juegosOlimpicos: "Un análisis profundo de los atletas olímpicos, explorando sus características y desempeños para descubrir patrones y destacar curiosidades del mayor evento deportivo.",
+                sqlPython: "Este proyecto demuestra cómo SQL y Python pueden trabajar juntos para extraer, analizar y visualizar datos de ventas, convirtiendo números en historias y estrategias comerciales."
+            };
+
+            const showAiSummaryModal = () => {
+                console.log("showAiSummaryModal: Attempting to show modal.");
+                aiSummaryModal.classList.remove('hidden');
+                
+                // Force a reflow before adding opacity/scale classes for transition to work
+                void aiSummaryModal.offsetWidth; 
+
+                requestAnimationFrame(() => { // Use rAF for smoother transition start
+                    aiSummaryModal.classList.remove('opacity-0');
+                    aiSummaryModal.classList.add('opacity-100');
+                    aiSummaryModal.querySelector('.modal-content').classList.remove('scale-95');
+                    aiSummaryModal.querySelector('.modal-content').classList.add('scale-100');
+                    console.log("showAiSummaryModal: Modal classes set for visible state.");
+                });
+            };
+
+            const hideAiSummaryModal = () => {
+                console.log("hideAiSummaryModal: Attempting to hide modal.");
+                aiSummaryModal.classList.remove('opacity-100');
+                aiSummaryModal.classList.add('opacity-0');
+                aiSummaryModal.querySelector('.modal-content').classList.remove('scale-100');
+                aiSummaryModal.querySelector('.modal-content').classList.add('scale-95');
+                
+                setTimeout(() => {
+                    console.log("hideAiSummaryModal (in setTimeout): About to add 'hidden' class.");
+                    aiSummaryModal.classList.add('hidden');
+                    const modalStyle = window.getComputedStyle(aiSummaryModal);
+                    console.log("hideAiSummaryModal (in setTimeout): 'hidden' class added. Modal display:", modalStyle.display, "Opacity:", modalStyle.opacity);
+                    aiSummaryModalBody.innerHTML = '<div class="flex justify-center items-center h-32"><div class="spinner"></div></div>'; 
+                }, 250); // Duration should match CSS transition (0.25s = 250ms)
+            };
+
+            closeAiSummaryModalButton.addEventListener('click', hideAiSummaryModal);
+            aiSummaryModal.addEventListener('click', (event) => {
+                if (event.target === aiSummaryModal) { // Only close if backdrop is clicked
+                    hideAiSummaryModal();
                 }
+            });
+
+            aiSummaryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const projectId = button.dataset.projectid;
+                    const projectCard = button.closest('.project-card');
+                    if (!projectCard) {
+                        console.error("AI Summary Button: Could not find parent project card.");
+                        return;
+                    }
+                    const projectTitleElement = projectCard.querySelector('.project-title');
+                    if (!projectTitleElement) {
+                        console.error("AI Summary Button: Could not find project title in card.");
+                        return;
+                    }
+                    const projectTitle = projectTitleElement.textContent;
+                    
+                    aiSummaryModalTitle.textContent = `Resumen IA: ${projectTitle}`;
+                    aiSummaryModalBody.innerHTML = '<div class="flex justify-center items-center h-32"><div class="spinner"></div></div>';
+                    showAiSummaryModal();
+
+                    setTimeout(() => {
+                        const summary = placeholderSummaries[projectId] || "No se encontró un resumen para este proyecto.";
+                        aiSummaryModalBody.innerHTML = `<p>${summary}</p>`;
+                    }, 2000); 
+                });
             });
         });
     </script>
