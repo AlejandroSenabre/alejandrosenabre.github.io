@@ -82,7 +82,7 @@
             background-color: #4b5563; /* bg-gray-600 */
             color: #f3f4f6; /* text-gray-100 */
         }
-         body.dark-mode .project-card .project-link-button:hover {
+        body.dark-mode .project-card .project-link-button:hover {
             background-color: #525a66; /* bg-gray-500 */
         }
 
@@ -111,7 +111,7 @@
             background-color: #e5e7eb; /* bg-gray-200 */
             color: #1e3a8a; /* text-blue-800 */
         }
-         body.dark-mode .linkedin-button:hover {
+        body.dark-mode .linkedin-button:hover {
             background-color: #d1d5db; /* bg-gray-300 */
         }
 
@@ -158,41 +158,6 @@
         input:checked + .slider .sun-icon { opacity: 0; visibility: hidden; }
         input:not(:checked) + .slider .moon-icon { opacity: 0; visibility: hidden; }
 
-        /* Modal Styles */
-        .modal {
-            transition: opacity 0.25s ease; /* Duración de la transición de opacidad */
-        }
-        .modal-content {
-            transition: transform 0.25s ease; /* Duración de la transición de escala */
-        }
-        body.dark-mode .modal-content {
-            background-color: #374151; /* bg-gray-700 */
-            color: #f3f4f6; /* text-gray-100 */
-        }
-        body.dark-mode .modal-content h3 {
-            color: #f3f4f6; /* text-gray-100 */
-        }
-         body.dark-mode .modal-content p {
-            color: #d1d5db; /* text-gray-300 */
-        }
-
-
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border-left-color: #4f46e5; /* indigo-600 */
-            animation: spin 1s ease infinite;
-        }
-        body.dark-mode .spinner {
-            border-left-color: #818cf8; /* indigo-400 for dark mode */
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         .project-link-button {
             display: block;
             width: 100%;
@@ -223,35 +188,6 @@
         body.dark-mode .project-link-button.secondary:hover {
             background-color: #10b981; /* bg-emerald-500 */
         }
-
-
-        .ai-summary-button {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: #7c3aed; /* bg-violet-600 */
-            color: white;
-            font-weight: 500; /* font-medium */
-            padding-top: 0.5rem; /* py-2 */
-            padding-bottom: 0.5rem; /* py-2 */
-            padding-left: 1rem; /* px-4 */
-            padding-right: 1rem; /* px-4 */
-            border-radius: 0.5rem; /* rounded-lg */
-            font-size: 0.875rem; /* text-sm */
-            transition: background-color 0.3s ease;
-            margin-top: 0.75rem; /* mt-3 */
-        }
-        .ai-summary-button:hover {
-            background-color: #6d28d9; /* bg-violet-700 */
-        }
-         body.dark-mode .ai-summary-button {
-            background-color: #8b5cf6; /* bg-violet-500 */
-        }
-        body.dark-mode .ai-summary-button:hover {
-            background-color: #7c3aed; /* bg-violet-600 */
-        }
-
-
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -322,7 +258,6 @@
                         <div class="mt-auto space-y-2">
                             <a href="/pdf/Predicción_de_riesgo_crediticio_Final.pdf" target="_blank" class="project-link-button">Ver Presentación (PDF)</a>
                             <a href="https://colab.research.google.com/drive/1g2xKNu5Nqd0lnpFrac1OpUe5tb4Va6Go?usp=sharing" target="_blank" class="project-link-button secondary">Código en Colab</a>
-                            <button class="ai-summary-button" data-projectid="riesgoCrediticio">Ver resumen por IA ✨</button>
                         </div>
                     </div>
                 </div>
@@ -340,7 +275,6 @@
                         <div class="mt-auto space-y-2">
                             <a href="/pdf/F1_Resumen_2023.pdf" target="_blank" class="project-link-button">Presentación (PDF)</a>
                             <a href="/pdf/Explicacion_proyecto_f1.pdf" target="_blank" class="project-link-button secondary">Detalles (PDF)</a>
-                            <button class="ai-summary-button" data-projectid="resumenF1">Ver resumen por IA ✨</button>
                         </div>
                     </div>
                 </div>
@@ -354,11 +288,10 @@
                         </p>
                         <div class="mb-4">
                             <span class="badge badge-powerbi">PowerBI</span>
-                             <span class="badge badge-sqlserver">SQL Server</span>
+                            <span class="badge badge-sqlserver">SQL Server</span>
                         </div>
                         <div class="mt-auto space-y-2">
                             <a href="/pdf/Juegos_Olimpicos_Proyecto_Final.pdf" target="_blank" class="project-link-button">Ver Presentación (PDF)</a>
-                            <button class="ai-summary-button" data-projectid="juegosOlimpicos">Ver resumen por IA ✨</button>
                         </div>
                     </div>
                 </div>
@@ -376,7 +309,6 @@
                         </div>
                         <div class="mt-auto space-y-2">
                             <a href="https://github.com/AlejandroSenabre/Data-Analysis-with-SQL/blob/main/BikeStore_with_SQL.ipynb" target="_blank" class="project-link-button">Ver Notebook en GitHub</a>
-                            <button class="ai-summary-button" data-projectid="sqlPython">Ver resumen por IA ✨</button>
                         </div>
                     </div>
                 </div>
@@ -390,23 +322,6 @@
             <p class="text-sm text-gray-400 mt-1">Construido con HTML, CSS (Tailwind CSS) y JavaScript.</p>
         </div>
     </footer>
-
-    <div id="aiSummaryModal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center p-4 hidden opacity-0 z-50">
-        <div class="modal-content bg-white p-8 rounded-lg shadow-xl w-full max-w-md mx-auto transform scale-95">
-            <div class="flex justify-between items-center mb-4">
-                <h3 id="aiSummaryModalTitle" class="text-xl font-semibold text-gray-700">Resumen por IA ✨</h3>
-                <button id="closeAiSummaryModalButton" class="text-gray-400 hover:text-gray-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            <div id="aiSummaryModalBody" class="text-gray-600 text-sm">
-                <div class="flex justify-center items-center h-32">
-                    <div class="spinner"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -437,96 +352,6 @@
 
             themeToggle.addEventListener('change', () => {
                 setTheme(themeToggle.checked ? 'dark' : 'light');
-            });
-
-            // --- AI Summary Modal Logic ---
-            const aiSummaryModal = document.getElementById('aiSummaryModal');
-            const aiSummaryModalTitle = document.getElementById('aiSummaryModalTitle');
-            const closeAiSummaryModalButton = document.getElementById('closeAiSummaryModalButton');
-            const aiSummaryModalBody = document.getElementById('aiSummaryModalBody');
-            const aiSummaryButtons = document.querySelectorAll('.ai-summary-button');
-
-            const placeholderSummaries = {
-                riesgoCrediticio: `Este proyecto se centra en una de las funciones más críticas de la banca moderna:
-    la gestión de préstamos. Un sistema de préstamos eficiente y rentable es fundamental
-    para la sostenibilidad de una institución financiera. Sin embargo, el riesgo inherente
-    de la morosidad representa un desafío significativo. El aumento de las tasas de interés,
-    influenciado por factores macroeconómicos como la inflación, complica aún más este
-    escenario al incrementar la carga financiera sobre los prestatarios y, potencialmente,
-    elevar las tasas de incumplimiento. En este contexto, el objetivo principal de este
-    proyecto es desarrollar un modelo predictivo capaz de evaluar la probabilidad de que
-    un préstamo se convierta en moroso, basándose en un conjunto de características del
-    préstamo y del prestatario disponibles antes de la concesión del crédito. Esta herramienta
-    puede ser invaluable para los bancos, permitiéndoles anticipar posibles pérdidas por
-    incobrabilidad y tomar medidas proactivas para mitigar el riesgo`,
-                resumenF1: "Visualiza la emoción de la Fórmula 1 con datos clave sobre pilotos, carreras y campeonatos, todo presentado de forma clara para entender el mundo de la alta velocidad.",
-                juegosOlimpicos: "Un análisis profundo de los atletas olímpicos, explorando sus características y desempeños para descubrir patrones y destacar curiosidades del mayor evento deportivo.",
-                sqlPython: "Este proyecto demuestra cómo SQL y Python pueden trabajar juntos para extraer, analizar y visualizar datos de ventas, convirtiendo números en historias y estrategias comerciales."
-            };
-
-            const showAiSummaryModal = () => {
-                console.log("showAiSummaryModal: Attempting to show modal.");
-                aiSummaryModal.classList.remove('hidden');
-                
-                // Force a reflow before adding opacity/scale classes for transition to work
-                void aiSummaryModal.offsetWidth; 
-
-                requestAnimationFrame(() => { // Use rAF for smoother transition start
-                    aiSummaryModal.classList.remove('opacity-0');
-                    aiSummaryModal.classList.add('opacity-100');
-                    aiSummaryModal.querySelector('.modal-content').classList.remove('scale-95');
-                    aiSummaryModal.querySelector('.modal-content').classList.add('scale-100');
-                    console.log("showAiSummaryModal: Modal classes set for visible state.");
-                });
-            };
-
-            const hideAiSummaryModal = () => {
-                console.log("hideAiSummaryModal: Attempting to hide modal.");
-                aiSummaryModal.classList.remove('opacity-100');
-                aiSummaryModal.classList.add('opacity-0');
-                aiSummaryModal.querySelector('.modal-content').classList.remove('scale-100');
-                aiSummaryModal.querySelector('.modal-content').classList.add('scale-95');
-                
-                setTimeout(() => {
-                    console.log("hideAiSummaryModal (in setTimeout): About to add 'hidden' class.");
-                    aiSummaryModal.classList.add('hidden');
-                    const modalStyle = window.getComputedStyle(aiSummaryModal);
-                    console.log("hideAiSummaryModal (in setTimeout): 'hidden' class added. Modal display:", modalStyle.display, "Opacity:", modalStyle.opacity);
-                    aiSummaryModalBody.innerHTML = '<div class="flex justify-center items-center h-32"><div class="spinner"></div></div>'; 
-                }, 250); // Duration should match CSS transition (0.25s = 250ms)
-            };
-
-            closeAiSummaryModalButton.addEventListener('click', hideAiSummaryModal);
-            aiSummaryModal.addEventListener('click', (event) => {
-                if (event.target === aiSummaryModal) { // Only close if backdrop is clicked
-                    hideAiSummaryModal();
-                }
-            });
-
-            aiSummaryButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const projectId = button.dataset.projectid;
-                    const projectCard = button.closest('.project-card');
-                    if (!projectCard) {
-                        console.error("AI Summary Button: Could not find parent project card.");
-                        return;
-                    }
-                    const projectTitleElement = projectCard.querySelector('.project-title');
-                    if (!projectTitleElement) {
-                        console.error("AI Summary Button: Could not find project title in card.");
-                        return;
-                    }
-                    const projectTitle = projectTitleElement.textContent;
-                    
-                    aiSummaryModalTitle.textContent = `Resumen IA: ${projectTitle}`;
-                    aiSummaryModalBody.innerHTML = '<div class="flex justify-center items-center h-32"><div class="spinner"></div></div>';
-                    showAiSummaryModal();
-
-                    setTimeout(() => {
-                        const summary = placeholderSummaries[projectId] || "No se encontró un resumen para este proyecto.";
-                        aiSummaryModalBody.innerHTML = `<p>${summary}</p>`;
-                    }, 2000); 
-                });
             });
         });
     </script>
